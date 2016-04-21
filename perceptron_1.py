@@ -37,7 +37,13 @@ for i in range(max_iteration):
     for (x_i, t_i) in zip(X, T):
         g_i = np.inner(w, x_i)
         # wを更新する
-        # wの更新が良ければ更新しない
+        if t_i * g_i < 0:
+            w_new = w + rho * t_i * x_i
+            print t_i
+    # wの更新が良ければ更新しない
+    else:
+        w_new = w
+    w = w_new
 
 # 予測クラスと比較する
 
