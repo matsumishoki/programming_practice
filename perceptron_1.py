@@ -20,7 +20,7 @@ num_examples = len(X)
 # Tの要素の0を-1に書き換える
 for i in range(len(T)):
     if T[i] == 0:
-        T[i] == -1
+        T[i] = -1
 print T
 
 print T.shape
@@ -56,8 +56,8 @@ for i in range(max_iteration):
     y = np.sign(np.inner(w, X))
     num_correct = np.sum(y == T)
     correct_accuracy = num_correct / float(num_examples) * 100
-    print correct_accuracy
-    if correct_accuracy > 50:
+    # print correct_accuracy
+    if correct_accuracy > 100.0:
         break
 
 # wを表示する
