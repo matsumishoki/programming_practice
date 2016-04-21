@@ -21,12 +21,12 @@ num_examples = len(X)
 for i in range(len(T)):
     if T[i] == 0:
         T[i] = -1
-print T
 
 print T.shape
 print X.shape
 print digits.data.shape
 plt.matshow(images[0], cmap=plt.cm.gray)
+plt.show()
 
 # 学習率を定義する
 rho = 0.5
@@ -56,9 +56,16 @@ for i in range(max_iteration):
     y = np.sign(np.inner(w, X))
     num_correct = np.sum(y == T)
     correct_accuracy = num_correct / float(num_examples) * 100
-    # print correct_accuracy
-    if correct_accuracy > 100.0:
+    print 'correct_accuracy:', correct_accuracy
+    if correct_accuracy == 100.0:
+        print 'w更新',
+        print i+1,
+        print '回目'
         break
+
+# 正解クラスと予測クラスの値を表示する
+print 'y:', y
+print 'T:', T
 
 # wを表示する
 plt.matshow(w.reshape(8, 8), cmap=plt.cm.gray)
