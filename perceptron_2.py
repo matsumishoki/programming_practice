@@ -10,6 +10,10 @@ import matplotlib as plt
 from sklearn.datasets import load_digits
 
 # データセットを読み込む
+digits = load_digits()
+X = digits.data
+T = digits.target
+num_sumples = len(X)
 
 # wを定義する
 
