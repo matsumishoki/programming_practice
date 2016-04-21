@@ -16,6 +16,11 @@ images = digits.images
 T = digits.target
 X = digits.data
 num_examples = len(X)
+
+for i in range(len(T)):
+    if T[i] == str(0):
+        T[i] == -1
+print T
 print T.shape
 print X.shape
 print digits.data.shape
@@ -51,4 +56,9 @@ for i in range(max_iteration):
     num_correct = np.sum(y == T)
     correct_accuracy = num_correct / float(num_examples) * 100
     print correct_accuracy
+    if correct_accuracy > 50:
+        break
+
 # wを表示する
+plt.matshow(w.reshape(8, 8), cmap=plt.cm.gray)
+plt.show()
