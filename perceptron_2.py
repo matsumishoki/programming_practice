@@ -49,5 +49,11 @@ for i in range(max_iteration):
     num_correct = np.sum(y == T)
     correct_accuracy = num_correct / float(num_sumples) * 100
     print correct_accuracy
+    if correct_accuracy == 100.0:
+        break
+
+print 'T:', T
+print 'y:', y
 
 # wの可視化
+print 'w:', w
