@@ -10,10 +10,15 @@ import matplotlib as plt
 from sklearn.datasets import load_digits
 
 # データセットを読み込む
-digits = load_digits()
+digits = load_digits(2)
 X = digits.data
 T = digits.target
 num_sumples = len(X)
+
+# Tの要素の0を-1にする
+for i in range(num_sumples):
+    if T[i] == 0:
+        T[i] = -1
 
 # wを定義する
 w = np.random.randn(64)
@@ -39,6 +44,10 @@ for i in range(max_iteration):
             w_new = w
         w = w_new
 
-# 予測クラスと正解クラスの値を比較する
+    # 予測クラスと正解クラスの値を比較する
+    y = np.sign(np.inner(w, X))
+    num_correct = np.sum(y == T)
+    correct_accuracy = num_correct / float(num_sumples) * 100
+    print correct_accuracy
 
 # wの可視化
