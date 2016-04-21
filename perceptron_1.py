@@ -17,10 +17,12 @@ T = digits.target
 X = digits.data
 num_examples = len(X)
 
+# Tの要素の0を-1に書き換える
 for i in range(len(T)):
-    if T[i] == str(0):
+    if T[i] == 0:
         T[i] == -1
 print T
+
 print T.shape
 print X.shape
 print digits.data.shape
@@ -37,7 +39,6 @@ max_iteration = 100
 
 # 一番大きなループ
 for i in range(max_iteration):
-   # print i
 
     # 識別関数の値を計算する
     for (x_i, t_i) in zip(X, T):
