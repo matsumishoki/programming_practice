@@ -22,10 +22,16 @@ rho = 0.5
 # 最大のループ回数を定義する
 max_iteration = 100
 
+# 重みベクトルを定義する
+w = np.random.randn(64)
+
 # 外側のループ
+for i in range(max_iteration):
+    print i
 
     # 内側のループ
-
+    for (x_i, t_i) in zip(X, T):
+        g_i = np.inner(w, X)
         # wを修正する方法の条件分岐
 
     # 予測クラスと正解クラスラベルの真値を比較する
