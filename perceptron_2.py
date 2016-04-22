@@ -6,7 +6,7 @@ Created on Thu Apr 21 16:54:08 2016
 """
 
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from sklearn.datasets import load_digits
 
 # データセットを読み込む
@@ -57,3 +57,4 @@ print 'y:', y
 
 # wの可視化
 print 'w:', w
+plt.matshow(w.reshape(8, 8), cmap=plt.cm.gray)
