@@ -15,6 +15,8 @@ digits = load_digits(2)
 X = digits.data
 T = digits.target
 num_examples = len(X)
+
+# Tの0の要素を-1に変更する
 for i in range(num_examples):
     if T[i] == 0:
         T[i] = -1
@@ -25,15 +27,16 @@ rho = 0.5
 # 最大のループ回数を定義する
 max_iteration = 100
 
-# 重みベクトルを定義する
+# 重みベクトルを定義する(64次元)
 w = np.random.randn(64)
 
 # 外側のループ
-for i in range(max_iteration):
+for epoch in range(max_iteration):
 
-    # 内側のループ
+    # 全ての学習パターンについて繰り返すループ
     for (x_i, t_i) in zip(X, T):
         g_i = np.inner(w, x_i)
+
         # wを修正する方法の条件分岐
         if g_i * t_i < 0:
             t_i = np.sign(t_i)
@@ -41,13 +44,23 @@ for i in range(max_iteration):
         else:
             w_new = w
         w = w_new
+
     # 予測クラスと正解クラスラベルの真値を比較する
     y = np.sign(np.inner(w, X))
     num_correct = np.sum(y == T)
     correct_accuracy = num_correct / float(num_examples) * 100
+    print 'epoch:', epoch + 1
     print correct_accuracy
+
+    # 100%の識別率だった場合，ループを抜ける
     if correct_accuracy == 100.0:
         break
+
+# 最終のパラメータを表示する
+print 'finish epoch:', epoch+1
+print 'learning_rate', rho
+print 'y:', y
+print 'T:', T
 
 # wを可視化する
 print 'w:', w
