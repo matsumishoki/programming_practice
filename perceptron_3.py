@@ -48,4 +48,8 @@ for i in range(max_iteration):
     print correct_accuracy
     if correct_accuracy == 100.0:
         break
+
 # wを可視化する
+print 'w:', w
+plt.matshow(w.reshape(8, 8), cmap=plt.cm.gray)
+plt.show()
