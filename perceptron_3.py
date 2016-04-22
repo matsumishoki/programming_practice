@@ -17,8 +17,10 @@ T = digits.target
 num_examples = len(X)
 
 # 学習率rhoを定義する
+rho = 0.5
 
 # 最大のループ回数を定義する
+max_iteration = 100
 
 # 外側のループ
 
