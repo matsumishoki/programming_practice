@@ -50,4 +50,4 @@ print "T:", T
 
 print "w:", w
 plt.matshow(w.reshape(8, 8), cmap=plt.cm.gray)
-plt.show
+plt.show()
