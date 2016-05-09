@@ -20,7 +20,7 @@ if __name__ == '__main__':
     num_samples = len(X)
 
     # 重みベクトルを定義する
-    w_dimension = 64
+    w_dimension = X.shape[1]
     w = np.random.randn(w_dimension)
 
     for i in range(max_iteration):
